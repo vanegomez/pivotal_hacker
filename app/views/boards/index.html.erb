@@ -1,5 +1,9 @@
 <h1>My Boards</h1>
 
-<% @boards.each do |board| %>
-  <h3><%= link_to board.title, board_path(board) %></h3>
-<% end %>
+  <p><%= link_to "New Board", new_board_path %></p>
+
+  <% @boards.each do |board| %>
+    <h3><%= link_to board.title, board_path(board) %></h3>
+    <p><%= link_to "Edit", edit_board_path(board) %> | <%= link_to "Delete", board, method: :delete %></p>
+  <% end %>
+
