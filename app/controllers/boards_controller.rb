@@ -11,15 +11,17 @@ class BoardsController < ApplicationController
     @board = Board.new(board_params)
 
     if @board.save
-      render :show
+      redirect_to board_path(@board)
     else
       flash[:errors] = "Please try again"
-      render :new
+      # render :new
     end
   end
 
   def show
-    @board = set_board
+    @board   = set_board
+    @ticket  = Ticket.new
+    @tickets = set_board.tickets
   end
 
   def edit
@@ -45,6 +47,8 @@ class BoardsController < ApplicationController
   end
 
   def set_board
-    Board.find(params[:id])
+    board = Board.find(params[:id])
+    session[:current_board] = board
+    board
   end
 end
