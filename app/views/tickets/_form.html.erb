@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col s12">
     <%= form_for(@ticket) do |f| %>
-      <div class="input-field col s4">
+      <div class="input-field col s3">
         <%= f.label :title %>
         <%= f.text_field :title %>
       </div>
@@ -12,7 +12,7 @@
       <div class="input-field col s3">
         <%= f.select :status, Ticket.statuses.keys.map {|status| [status.titleize, status.to_sym]} %>
       </div>
-      <div class="input-field col s1">
+      <div class="input-field col s2">
         <%= f.submit %>
       </div>
     <% end %>

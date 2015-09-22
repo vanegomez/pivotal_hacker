@@ -14,7 +14,6 @@ class BoardsController < ApplicationController
       redirect_to board_path(@board)
     else
       flash[:errors] = "Please try again"
-      # render :new
     end
   end
 

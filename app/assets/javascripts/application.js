@@ -18,3 +18,10 @@
 $(document).ready(function() {
   $('select').material_select();
 });
+
+
+//## ajax
+//## $.ajax( url:"/tickets/" + id + "/down",
+//# method: post,
+//# success: function(){
+//# update ticket in the dom})

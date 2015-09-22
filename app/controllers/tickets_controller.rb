@@ -51,18 +51,3 @@ class TicketsController < ApplicationController
     Ticket.find_by(id: params[:ticket_id])
   end
 end
-
-## post
-## tickets/:id/up
-## tickets/:id/down
-
-## ticket id / current status / target status
-## current status neighbors
-## update action
-## model 2 methods: 1.up / 2.down
-
-## ajax
-## $.ajax( url:"/tickets/" + id + "/down",
-# method: post,
-# success: function(){
-# update ticket in the dom})
