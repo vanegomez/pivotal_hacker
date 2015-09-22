@@ -9,6 +9,15 @@
 <body>
 <div class="container">
 
+  <nav>
+    <div class="nav-wrapper">
+      <%= link_to "Pivotal Hacker", root_path, class: "brand-logo" %>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to "New Board", new_board_path %></li>
+      </ul>
+    </div>
+  </nav>
+
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>

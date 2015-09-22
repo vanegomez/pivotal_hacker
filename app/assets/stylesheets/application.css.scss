@@ -17,3 +17,7 @@
 @import "materialize/components/color";
 $primary-color: color("blue-grey", "lighten-2") !default;
 @import "materialize";
+
+li {
+  display: inline;
+}
