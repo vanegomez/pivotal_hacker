@@ -21,7 +21,13 @@ class TicketsController < ApplicationController
   end
 
   def up
-    @ticket = Ticket.find_by(id: params[:ticket_id])
+    @ticket = set_ticket_by_id
+    @ticket.update_attributes(status: params[:status])
+    redirect_to current_board
+  end
+
+  def down
+    @ticket = set_ticket_by_id
     @ticket.update_attributes(status: params[:status])
     redirect_to current_board
   end
@@ -39,6 +45,10 @@ class TicketsController < ApplicationController
 
   def set_ticket
     Ticket.find(params[:id])
+  end
+
+  def set_ticket_by_id
+    Ticket.find_by(id: params[:ticket_id])
   end
 end
 

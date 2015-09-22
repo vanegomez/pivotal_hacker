@@ -24,7 +24,7 @@
           <li><strong><%= ticket.title %></strong></li>
           <li><%= ticket.description %></li>
           <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
-          <li><%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "in_progress"), method: :put %></li>
+          <li><%= link_to "Down", down_ticket_path(ticket_id: ticket.id, status: "backlog"), method: :put %> | <%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "in_progress"), method: :put %></li>
         </ul>
         <% end %>
       </div>
@@ -37,7 +37,7 @@
           <li><strong><%= ticket.title %></strong></li>
           <li><%= ticket.description %></li>
           <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
-          <li><%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "done"), method: :put %></li>
+          <li><%= link_to "Down", down_ticket_path(ticket_id: ticket.id, status: "current_sprint"), method: :put %> | <%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "done"), method: :put %></li>
         </ul>
         <% end %>
       </div>
@@ -50,6 +50,7 @@
           <li><strong><%= ticket.title %></strong></li>
           <li><%= ticket.description %></li>
           <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
+          <li><%= link_to "Down", down_ticket_path(ticket_id: ticket.id, status: "in_progress"), method: :put %></li>
         </ul>
         <% end %>
       </div>
