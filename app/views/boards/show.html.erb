@@ -8,10 +8,9 @@
         <hr>
         <% @tickets.backlog.each do |ticket| %>
         <ul>
-          <li><strong><%= ticket.title %></strong><br>
-          <%= ticket.description %></li>
-          <li><%= ticket.status %></li>
-          <p><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></p>
+          <li><strong><%= ticket.title %></strong></li>
+          <li><%= ticket.description %></li>
+          <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
           <li><%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "current_sprint"), method: :put %></li>
         </ul>
         <% end %>
@@ -22,9 +21,9 @@
         <hr>
         <% @tickets.current_sprint.each do |ticket| %>
         <ul>
-          <li><strong><%= ticket.title %></strong><br>
-            <%= ticket.description %></li>
-          <p><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></p>
+          <li><strong><%= ticket.title %></strong></li>
+          <li><%= ticket.description %></li>
+          <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
           <li><%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "in_progress"), method: :put %></li>
         </ul>
         <% end %>
@@ -35,9 +34,9 @@
         <hr>
         <% @tickets.in_progress.each do |ticket| %>
         <ul>
-          <li><strong><%= ticket.title %></strong><br>
-            <%= ticket.description %></li>
-          <p><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></p>
+          <li><strong><%= ticket.title %></strong></li>
+          <li><%= ticket.description %></li>
+          <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
           <li><%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "done"), method: :put %></li>
         </ul>
         <% end %>
@@ -48,9 +47,9 @@
         <hr>
         <% @tickets.done.each do |ticket| %>
         <ul>
-          <li><strong><%= ticket.title %></strong><br>
-            <%= ticket.description %></li>
-          <p><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></p>
+          <li><strong><%= ticket.title %></strong></li>
+          <li><%= ticket.description %></li>
+          <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
         </ul>
         <% end %>
       </div>

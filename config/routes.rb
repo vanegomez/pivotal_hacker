@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :boards
   resources :tickets do
     member do
-      # put '/tickets/:id/up', to: 'tickets#up', as: 'up'
+      put :down
       put :up
     end
   end
