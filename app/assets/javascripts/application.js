@@ -17,7 +17,30 @@
 
 $(document).ready(function() {
   $('select').material_select();
+  $('.updateTicket').on('click', updateTicket);
 });
+
+function updateTicket(event) {
+  event.preventDefault();
+
+  var url = $(event.target).attr('href');
+
+  $.ajax(url, {
+    method: 'PUT',
+    success: function(data) {
+      console.log(data, "ajax success");
+      var card = $(event.target).closest('.card-panel');
+      console.log(card, "card");
+      (card).append('.current-sprint');
+      console.log("appended");
+    },
+    error: function(request) {
+      console.log(request, "error")
+    }
+  });
+  console.log('updating', url);
+  return false;
+}
 
 
 //## ajax

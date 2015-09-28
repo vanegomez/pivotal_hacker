@@ -2,20 +2,15 @@
 
 <%= render './tickets/form' %>
 
+<%#= render partial: 'ticket_status', locals: { up: true } %>
+
 <div class="row">
   <div class="col s3">
     <h5>Backlog</h5>
     <hr>
     <div class="backlog">
       <% @tickets.backlog.each do |ticket| %>
-        <div class="card-panel" id="ticket" draggable="true" ondragstart="drag(event)">
-          <ul>
-            <li><strong><%= ticket.title %></strong></li>
-            <li><%= ticket.description %></li>
-            <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
-            <li><%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "current_sprint"), method: :put %></li>
-          </ul>
-        </div>
+        <%= render partial: 'ticket_status', locals: {ticket: ticket} %>
       <% end %>
     </div>
   </div>
@@ -25,14 +20,7 @@
     <hr>
     <div class="current-sprint">
       <% @tickets.current_sprint.each do |ticket| %>
-        <div class="card-panel" id="ticket" draggable="true" ondragstart="drag(event)">
-          <ul>
-            <li><strong><%= ticket.title %></strong></li>
-            <li><%= ticket.description %></li>
-            <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
-            <li><%= link_to "Down", down_ticket_path(ticket_id: ticket.id, status: "backlog"), method: :put %> | <%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "in_progress"), method: :put %></li>
-          </ul>
-        </div>
+        <%= render partial: 'ticket_status', locals: {ticket: ticket} %>
       <% end %>
     </div>
   </div>
@@ -42,14 +30,7 @@
     <hr>
     <div class="in-progress">
       <% @tickets.in_progress.each do |ticket| %>
-        <div class="card-panel">
-          <ul>
-            <li><strong><%= ticket.title %></strong></li>
-            <li><%= ticket.description %></li>
-            <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
-            <li><%= link_to "Down", down_ticket_path(ticket_id: ticket.id, status: "current_sprint"), method: :put %> | <%= link_to "Up", up_ticket_path(ticket_id: ticket.id, status: "done"), method: :put %></li>
-          </ul>
-        </div>
+        <%= render partial: 'ticket_status', locals: {ticket: ticket} %>
       <% end %>
     </div>
   </div>
@@ -59,14 +40,7 @@
     <hr>
     <div class="done">
     <% @tickets.done.each do |ticket| %>
-      <div class="card-panel">
-        <ul>
-          <li><strong><%= ticket.title %></strong></li>
-          <li><%= ticket.description %></li>
-          <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
-          <li><%= link_to "Down", down_ticket_path(ticket_id: ticket.id, status: "in_progress"), method: :put %></li>
-        </ul>
-      </div>
+        <%= render partial: 'ticket_status', locals: {ticket: ticket} %>
     <% end %>
     </div>
   </div>

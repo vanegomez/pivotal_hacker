@@ -20,16 +20,12 @@ class TicketsController < ApplicationController
     redirect_to current_board
   end
 
-  def up
+  def status
     @ticket = set_ticket_by_id
     @ticket.update_attributes(status: params[:status])
-    redirect_to current_board
-  end
+    # redirect_to current_board
 
-  def down
-    @ticket = set_ticket_by_id
-    @ticket.update_attributes(status: params[:status])
-    redirect_to current_board
+    render json: [:success]
   end
 
   def destroy

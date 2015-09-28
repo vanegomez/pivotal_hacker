@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :boards
   resources :tickets do
     member do
-      put :down
-      put :up
+      put :status
     end
   end
 end
+

@@ -1,0 +1,29 @@
+<%# if up %>
+  <!--<h2>hello</h2>-->
+<%# end %>
+
+<div class="card-panel">
+  <ul>
+    <li><strong><%= ticket.title %></strong></li>
+    <li><%= ticket.description %></li>
+    <li><%= link_to "Edit", edit_ticket_path(ticket) %> | <%= link_to "Delete", ticket, method: :delete %></li>
+    <% if ticket.status == "backlog" %>
+      <li><%= link_to "Up", status_ticket_path(ticket_id: ticket.id, status: "current_sprint"), method: :put %></li>
+    <% elsif ticket.status == "current_sprint" %>
+      <li><%= link_to "Down", status_ticket_path(ticket_id: ticket.id, status: "backlog"), class: "updateTicket", method: :put %> | <%= link_to "Up", status_ticket_path(ticket_id: ticket.id, status: "in_progress"), method: :put %></li>
+    <% elsif ticket.status == "in_progress" %>
+      <li><%= link_to "Down", status_ticket_path(ticket_id: ticket.id, status: "current_sprint"), method: :put %> | <%= link_to "Up", status_ticket_path(ticket_id: ticket.id, status: "done"), method: :put %></li>
+    <% else %>
+      <li><%= link_to "Down", status_ticket_path(ticket_id: ticket.id, status: "in_progress"), method: :put %></li>
+    <% end %>
+  </ul>
+</div>
+
+<!--<div class="card-panel">-->
+  <!--<ul>-->
+    <!--<li><strong><%#= ticket.title %></strong></li>-->
+    <!--<li><%#= ticket.description %></li>-->
+    <!--<li><%#= link_to "Edit", edit_ticket_path(ticket) %> | <%#= link_to "Delete", ticket, method: :delete %></li>-->
+    <!--<li><%#= link_to "Up", status_ticket_path(ticket_id: ticket.id, status: "current_sprint"), class: "updateTicket", method: :put %></li>-->
+  <!--</ul>-->
+<!--</div>-->
